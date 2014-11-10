@@ -23,18 +23,18 @@ function getdata(){
 
 	// 手机，名字，地址，型号，价格
 
-   	$xinghao = $carinfo[1][0];   
-   	$jiage = $price[0][0];
-   	$shouji = $phone[0][0];
-   	$mingzi = $address[1][0];
-   	$dizhi = $address[2][0];
+   	$xinghao = $carinfo[0][1][0];   
+   	$jiage = $price[0][1][0];
+   	$shouji = $phone[0][1][0];
+   	$mingzi = $address[0][1][0];
+   	$dizhi = $address[0][2][0];
 
 
-   	echo $xinghao.'<br />';
-   	echo $jiage.'<br />';
-   	echo $shouji.'<br />';
-   	echo $mingzi.'<br />';
-   	echo $dizhi.'<br />';
+   	//echo $xinghao.'<br />';
+   	//echo $jiage.'<br />';
+   	//echo $shouji.'<br />';
+   	//echo $mingzi.'<br />';
+   	//echo $dizhi.'<br />';
 
 
 	insert($phone[0][0],$address[1][0],$address[2][0],$carinfo[1][0],$price[0][0]);
