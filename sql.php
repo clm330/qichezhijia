@@ -21,7 +21,7 @@ function insert($a,$b,$c,$d,$e){
 
 
 	$sql = "INSERT  INTO `qichezhijia` ( `phone`, `name` , `address` , `type`,`prie`) VALUES ('$a','$b','$c','$d','$e')";
-	$sql = "INSERT  INTO `qichezhijia` ( `phone`, `name` , `address` , `type`,`prie`) VALUES ('fuck','you','r','mother','kao')";
+	//$sql = "INSERT  INTO `qichezhijia` ( `phone`, `name` , `address` , `type`,`prie`) VALUES ('fuck','you','r','mother','kao')";
 	
 	echo 'sql='.$sql;
 
