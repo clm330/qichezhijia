@@ -34,7 +34,6 @@ class Spider{
 
 	public function getfinalurl($url){
 
-		$url = 'http://www.che168.com/shenzhen/baoshijie/a0_0msdgscncgpi1ltocsp2ex/';
 		$UserAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0';
 		$curl = curl_init();
 		curl_setopt($curl, CURLOPT_REFERER, 'http://www.che168.com/shenzhen/');
