@@ -57,21 +57,12 @@ class Spider{
 	   		$woqulenimalegebi = $lasturl[1];
 	   	}
 
-	   	if (count($woqulenimalegebi)==0)
-	   	{
-	   		continue;
-	   	}
-	   	
-	   	else{
-
-		   	$finalurl = array();
-		   	foreach ($woqulenimalegebi as $key => $value) {
-		   		$finalurl='http://www.che168.com/'.$woqulenimalegebi[$key];
-		   		echo $finalurl.'         ';
-				$this->getdata($finalurl);	   		
-	   		}
-
-	   	}
+	   	$finalurl = array();
+	   	foreach ($woqulenimalegebi as $key => $value) {
+	   		$finalurl='http://www.che168.com/'.$woqulenimalegebi[$key];
+	   		echo $finalurl.'         ';
+			$this->getdata($finalurl);	   		
+		}
 
 	}	
 
