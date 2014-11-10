@@ -1,6 +1,8 @@
 <?php
 require 'sql.php';
 
+
+
 function getdata(){
 	//$finalurl = 'http://www.che168.com/dealer/139108/3607134.html';
 	$finalurl = 'http://www.che168.com/personal/3677463.html';
@@ -10,6 +12,8 @@ function getdata(){
 	curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
 	curl_setopt($curl, CURLOPT_USERAGENT, $UserAgent);
 	$content = curl_exec($curl);
+    $content = iconv("gb2312","utf-8//IGNORE",$content);
+
    	preg_match_all('(<span class="font30">(.*)</span>)',$content,$price);
    	preg_match_all('(<span class="font22">(.*)</span>)', $content, $phone);
    	preg_match_all('(<h2 title="(.*)">)', $content, $carinfo);
@@ -20,8 +24,6 @@ function getdata(){
    	// echo '<pre>'.print_r($phone,1).'</pre>';
    	// echo '<pre>'.print_r($address,1).'</pre>';
    	// echo '<pre>'.print_r($address,1).'</pre>';
-
-
 
    	// print_r($carinfo[1][0]);   	
    	// print_r($price[1][0]);
@@ -36,6 +38,8 @@ function getdata(){
    	$shouji = $phone[1][0];
    	$mingzi = $address[1][0];
    	$dizhi = $address[2][0];
+
+
 
 
    	// echo $xinghao.'<br />';
