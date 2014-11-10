@@ -37,7 +37,7 @@ function getdata(){
    	//echo $dizhi.'<br />';
 
 
-	insert($phone[0][0],$address[1][0],$address[2][0],$carinfo[1][0],$price[0][0]);
+	insert($shouji,$mingzi,$dizhi,$xinghao,$jiage);
 
 }
 
