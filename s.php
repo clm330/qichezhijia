@@ -66,7 +66,7 @@ class Spider{
 		   	$finalurl = array();
 		   	foreach ($woqulenimalegebi as $key => $value) {
 		   		$finalurl='http://www.che168.com/'.$woqulenimalegebi[$key];
-		   		echo $finalurl;
+		   		echo $finalurl.'         ';
 				$this->getdata($finalurl);	   		
 	   		}
 
