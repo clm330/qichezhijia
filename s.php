@@ -48,8 +48,10 @@ class Spider{
 	    $content = iconv("gb2312","utf-8//IGNORE",$content);
 
 	   	preg_match_all('(<a href="/(dealer/[0-9]+/[0-9]+.html)#pvareaid=100519"(.*)</a>)',$content,$lasturl);
-	   	preg_match_all('(<a href="/(personal/[0-9]+.html)"(.*)</a>)',$content,$presonalurl);
+	   	preg_match_all('(<a href="/(personal/[0-9]+.html)#pvareaid=100519")',$content,$presonalurl);
 
+	   	//print_r($presonalurl[1]);
+	   	//die();
 	   	$woqulenimalegebi = array();
 	   	if(count($presonalurl[1])>0)
 	   	{
@@ -59,6 +61,10 @@ class Spider{
 	   	{
 	   		$woqulenimalegebi = $lasturl;
 	   	}
+
+	   	//print_r($woqulenimalegebi);
+	   	//die();
+
 
 	   	$finalurl = array();
 	   	foreach ($woqulenimalegebi as $key => $value) {
