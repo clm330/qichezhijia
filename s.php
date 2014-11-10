@@ -15,26 +15,34 @@ function getdata(){
    	preg_match_all('(<h2 title="(.*)">)', $content, $carinfo);
    	preg_match_all('(<div>(.*)</div><div>(.*)<i class="icon-adress"></i></div>)', $content, $address);
 
-   	echo '<pre>'.print_r($carinfo,1).'</pre>';   	
-   	echo '<pre>'.print_r($price,1).'</pre>';
-   	echo '<pre>'.print_r($phone,1).'</pre>';
-   	echo '<pre>'.print_r($address,1).'</pre>';
-   	echo '<pre>'.print_r($address,1).'</pre>';
+   	// echo '<pre>'.print_r($carinfo,1).'</pre>';   	
+   	// echo '<pre>'.print_r($price,1).'</pre>';
+   	// echo '<pre>'.print_r($phone,1).'</pre>';
+   	// echo '<pre>'.print_r($address,1).'</pre>';
+   	// echo '<pre>'.print_r($address,1).'</pre>';
+
+
+
+   	// print_r($carinfo[1][0]);   	
+   	// print_r($price[1][0]);
+   	// print_r($phone[1][0]);
+   	// print_r($address[1][0]);
+   	// print_r($address[2][0]);
 
 	// 手机，名字，地址，型号，价格
 
-   	$xinghao = $carinfo[0][1][0];   
-   	$jiage = $price[0][1][0];
-   	$shouji = $phone[0][1][0];
-   	$mingzi = $address[0][1][0];
-   	$dizhi = $address[0][2][0];
+   	$xinghao = $carinfo[1][0];   
+   	$jiage = $price[1][0];
+   	$shouji = $phone[1][0];
+   	$mingzi = $address[1][0];
+   	$dizhi = $address[2][0];
 
 
-   	//echo $xinghao.'<br />';
-   	//echo $jiage.'<br />';
-   	//echo $shouji.'<br />';
-   	//echo $mingzi.'<br />';
-   	//echo $dizhi.'<br />';
+   	// echo $xinghao.'<br />';
+   	// echo $jiage.'<br />';
+   	// echo $shouji.'<br />';
+   	// echo $mingzi.'<br />';
+   	// echo $dizhi.'<br />';
 
 
 	insert($shouji,$mingzi,$dizhi,$xinghao,$jiage);
