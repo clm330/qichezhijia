@@ -4,7 +4,6 @@
 
 function insert($a,$b,$c,$d,$e){
 
-
 	// echo $a;
 	// echo $b;
 	// echo $c;
@@ -25,7 +24,7 @@ function insert($a,$b,$c,$d,$e){
 	//$sql = "INSERT  INTO `qichezhijia` ( `phone`, `name` , `address` , `type`,`prie`) VALUES ('fuck','you','r','mother','kao')";
 	if (!mysql_query($sql,$link))
 	  {
-	  echo 'Error: ' . mysql_error();
+	  	echo 'Error: ' . mysql_error();
 	  }
 
 }
