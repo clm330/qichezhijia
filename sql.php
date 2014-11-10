@@ -25,6 +25,8 @@ function insert($a,$b,$c,$d,$e){
 	
 	echo 'sql='.$sql;
 
+	mysql_query('set names utf8');
+
 	if (!mysql_query($sql,$link))
 	  {
 	  	echo 'Error: ' . mysql_error();
