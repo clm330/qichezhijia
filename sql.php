@@ -23,9 +23,9 @@ function insert($a,$b,$c,$d,$e){
 	$sql = "INSERT  INTO `qichezhijia` ( `phone`, `name` , `address` , `type`,`prie`) VALUES ('$a','$b','$c','$d','$e')";
 	//$sql = "INSERT  INTO `qichezhijia` ( `phone`, `name` , `address` , `type`,`prie`) VALUES ('fuck','you','r','mother','kao')";
 	
-	echo 'sql='.$sql;
+//	echo 'sql='.$sql;
 
-	mysql_query('set names utf8');
+	//mysql_query('set names utf8');
 
 	if (!mysql_query($sql,$link))
 	  {
