@@ -59,8 +59,9 @@ class Spider{
 
 	   	if (count($woqulenimalegebi)==0)
 	   	{
-	   		break;
+	   		continue;
 	   	}
+	   	
 	   	else{
 
 		   	$finalurl = array();
