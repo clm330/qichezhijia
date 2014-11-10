@@ -54,7 +54,7 @@ class Spider{
 	   	}
 	   	else
 	   	{
-	   		$woqulenimalegebi = $lasturl;
+	   		$woqulenimalegebi = $lasturl[1];
 	   	}
 
 	   	if (count($woqulenimalegebi)==0)
