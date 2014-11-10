@@ -15,11 +15,11 @@ function getdata(){
    	preg_match_all('(<h2 title="(.*)">)', $content, $carinfo);
    	preg_match_all('(<div>(.*)</div><div>(.*)<i class="icon-adress"></i></div>)', $content, $address);
 
-   	echo '<pre>'.print_r($carinfo[1][0],1).'</pre>';   	
-   	echo '<pre>'.print_r($price[0][0],1).'</pre>';
-   	echo '<pre>'.print_r($phone[0][0],1).'</pre>';
-   	echo '<pre>'.print_r($address[1][0],1).'</pre>';
-   	echo '<pre>'.print_r($address[2][0],1).'</pre>';
+   	echo '<pre>'.print_r($carinfo[1],1).'</pre>';   	
+   	echo '<pre>'.print_r($price[0],1).'</pre>';
+   	echo '<pre>'.print_r($phone[0],1).'</pre>';
+   	echo '<pre>'.print_r($address[1],1).'</pre>';
+   	echo '<pre>'.print_r($address[2],1).'</pre>';
 
 	// 手机，名字，地址，型号，价格
 
