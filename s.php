@@ -57,12 +57,21 @@ class Spider{
 	   		$woqulenimalegebi = $lasturl[1];
 	   	}
 
-	   	$finalurl = array();
-	   	foreach ($woqulenimalegebi as $key => $value) {
-	   		$finalurl='http://www.che168.com/'.$woqulenimalegebi[$key];
-	   		echo $finalurl.'         ';
-			$this->getdata($finalurl);	   		
-		}
+	   	if (count($woqulenimalegebi)==0)
+	   	{
+	   		continue;
+	   	}
+
+	   	else{
+
+		   	$finalurl = array();
+		   	foreach ($woqulenimalegebi as $key => $value) {
+		   		$finalurl='http://www.che168.com/'.$woqulenimalegebi[$key];
+		   		echo $finalurl.'         ';
+				$this->getdata($finalurl);	   		
+	   		}
+
+	   	}
 
 	}	
 
@@ -78,7 +87,7 @@ class Spider{
 			for($i=0;$i<9;$i++)
 			{
 				$securl = $url[$key].'a'.$i.'_'.($i+1).'msdgscncgpi1ltocsp';
-				for($j=1;$j<=300;$j++){
+				for($j=1;$j<=100;$j++){
 					$thiurl = $securl.$j.'ex/';
 					echo $thiurl;
 					$this->getfinalurl($thiurl);
