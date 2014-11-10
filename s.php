@@ -36,7 +36,7 @@ class Spider{
 
 	public function getfinalurl($url){
 
-		$url = 'http://www.che168.com/shenzhen/aodi/a0_1msdgscncgpiltocsp2ex/';
+		$url = 'http://www.che168.com/shenzhen/baoshijie/a0_0msdgscncgpi1ltocsp2ex/';
 		$UserAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0';
 		$curl = curl_init();
 		curl_setopt($curl, CURLOPT_REFERER, 'http://www.che168.com/shenzhen/');
@@ -48,10 +48,21 @@ class Spider{
 	    $content = iconv("gb2312","utf-8//IGNORE",$content);
 
 	   	preg_match_all('(<a href="/(dealer/[0-9]+/[0-9]+.html)#pvareaid=100519"(.*)</a>)',$content,$lasturl);
+	   	preg_match_all('(<a href="/(personal/[0-9]+.html)"(.*)</a>)',$content,$presonalurl);
+
+	   	$woqulenimalegebi = array();
+	   	if(count($presonalurl[1])>0)
+	   	{
+		   	$woqulenimalegebi = array_merge($lasturl[1],$presonalurl[1]);
+	   	}
+	   	else
+	   	{
+	   		$woqulenimalegebi = $lasturl;
+	   	}
 
 	   	$finalurl = array();
-	   	foreach ($lasturl[1] as $key => $value) {
-	   		$finalurl='http://www.che168.com/'.$lasturl[1][$key];
+	   	foreach ($woqulenimalegebi as $key => $value) {
+	   		$finalurl='http://www.che168.com/'.$woqulenimalegebi[$key];
 	   		echo $finalurl;
 			$this->getdata($finalurl);	   		
 	   	}
@@ -78,7 +89,7 @@ class Spider{
 				for($j=1;$j<=300;$j++){
 					$thiurl = $securl.$j.'ex/';
 					echo $thiurl;
-
+					$this->getfinalurl();
 				}
 				//print_r($securl);
 			}
