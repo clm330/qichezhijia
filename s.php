@@ -83,15 +83,47 @@ class Spider{
 		$url = array();
 		foreach ($mergeurl as $key => $type) {
 			$url[$key] = 'http://www.che168.com/shenzhen/'.$type.'/';
-			$securl=array();
-			for($i=0;$i<9;$i++)
-			{
-				$securl = $url[$key].'a'.$i.'_'.($i+1).'msdgscncgpi1ltocsp';
-				for($j=1;$j<=100;$j++){
-					$thiurl = $securl.$j.'ex/';
-					echo $thiurl;
-					$this->getfinalurl($thiurl);
-				}
+			//$securl = array();
+			$securl = $url[$key].'a'.'0'.'_'.'0'.'msdgscncgpi1ltocsp';
+			for($j=1;$j<=100;$j++){
+				$thiurl = $securl.$j.'ex/';
+				echo $thiurl;
+
+
+				$UserAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0';
+				$curl = curl_init();
+				curl_setopt($curl, CURLOPT_REFERER, 'http://www.che168.com/shenzhen/');
+				curl_setopt($curl, CURLOPT_URL, $thiurl);
+				curl_setopt($curl, CURLOPT_RETURNTRANSFER,true);
+				curl_setopt($curl, CURLOPT_AUTOREFERER, true); 
+				curl_setopt($curl, CURLOPT_USERAGENT, $UserAgent);
+				$content = curl_exec($curl);
+			    $content = iconv("gb2312","utf-8//IGNORE",$content);
+
+			   	preg_match_all('(<a href="/(dealer/[0-9]+/[0-9]+.html)#pvareaid=100519"(.*)</a>)',$content,$lasturl);
+			   	preg_match_all('(<a href="/(personal/[0-9]+.html)#pvareaid=100519")',$content,$presonalurl);
+
+			   	$woqulenimalegebi = array();
+			   	if(count($presonalurl[1])>0)
+			   	{
+				   	$woqulenimalegebi = array_merge($lasturl[1],$presonalurl[1]);
+			   	}
+			   	else
+			   	{
+			   		$woqulenimalegebi = $lasturl[1];
+			   	}
+
+
+			   	if (count($woqulenimalegebi)==0)
+			   	{
+			   		break;
+			   	}
+			   	else
+			   	{
+			   		$this->getfinalurl($thiurl);
+			   	}
+
+				
 			}
 
 		}
