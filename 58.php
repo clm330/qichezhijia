@@ -1,29 +1,33 @@
 <?php
 	include('58api.php');	
 	include('Snoopy.class.php');
-	//echo "<pre>";
-	// $snoopy = new Snoopy;
-	// $snoopy->host = 'http://sz.58.com/ershoufang/19218421723906x.shtml';
-	// //$snoopy-> fetchtext($snoopy->host); //获取所有文本内容（去掉html代码）
+	echo "<pre>";
+	$snoopy = new Snoopy;
+	$snoopy->host = 'http://sz.58.com/ershoufang/pn1/';
+	//$snoopy-> fetchtext($snoopy->host); //获取所有文本内容（去掉html代码）
 
 
-	// $snoopy->fetch($snoopy->host); //获取页面所有链接
-	// //$snoopy->fetchlinks($snoopy->host); //获取页面所有链接
-	// //$snoopy->fetchlinks($snoopy->host); //获取链接   
-	// //$snoopy->fetchform($snoopy->host);  //获取表单  
-	// //print_r($snoopy->results);
+	//$snoopy->fetch($snoopy->host); //获取页面所有链接
+	$snoopy->fetchlinks($snoopy->host); //获取页面所有链接
+	//$snoopy->fetchlinks($snoopy->host); //获取链接   
+	//$snoopy->fetchform($snoopy->host);  //获取表单  
+	print_r($snoopy->results);
 
 
-	// $a = preg_grep('(<a rel="nofollow" href="http://my.58.com/[0-9]+/">(.*)</a>)', $snoopy->results);
-	// // $b = preg_grep('(http://sz.58.com/ershoufang/[0-9]+x.shtml)', $snoopy->results);
+	die();
 
-	// preg_match_all('(<[0-9]{3} [0-9]{4} [0-9]{4}")',$snoopy->results,$morelist);
+	$a = preg_grep('(<a rel="nofollow" href="http://my.58.com/[0-9]+/">(.*)</a>)', $snoopy->results);
+	// $b = preg_grep('(http://sz.58.com/ershoufang/[0-9]+x.shtml)', $snoopy->results);
 
-	// print_r($morelist);
-	// //$mergeab = array_merge($a,$b);
-	// //print_r($mergeab);
+	preg_match_all('(<[0-9]{3} [0-9]{4} [0-9]{4}")',$snoopy->results,$morelist);
+
+	print_r($morelist);
+	//$mergeab = array_merge($a,$b);
+	//print_r($mergeab);
 
 
+
+die();
 
 	// $initurl='http://sz.58.com/ershoufang/19218421723906x.shtml';
 	// $UserAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0';
@@ -58,7 +62,9 @@
 		$snoopy->fetchlinks($snoopy->host); //获取页面所有链接
 		$a = preg_grep('(http://jump.zhineng.58.com/)', $snoopy->results);
 		$b = preg_grep('(http://sz.58.com/ershoufang/[0-9]+x.shtml)', $snoopy->results);
-		$mergeab = array_merge($a,$b);
+		$c = preg_grep('(http://jing.58.com/)', $snoopy->results);
+		http://jing.58.com/
+		$mergeab = array_merge($a,$b,$c);
 
 		$mergeab = array_unique($mergeab);
 		//print_r($mergeab);
