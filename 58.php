@@ -59,6 +59,8 @@
 		$a = preg_grep('(http://jump.zhineng.58.com/)', $snoopy->results);
 		$b = preg_grep('(http://sz.58.com/ershoufang/[0-9]+x.shtml)', $snoopy->results);
 		$mergeab = array_merge($a,$b);
+
+		$mergeab = array_unique($mergeab);
 		//print_r($mergeab);
 
 		foreach ($mergeab as $key => $value) {
@@ -74,6 +76,8 @@
 			$content = curl_exec($curl);
 
 			echo $mergeab[$key].'           ';
+
+
 
 			preg_match_all('(<span style="font-size: 26px; font-weight: bold;" class="arial c_ff4200" id="t_phone">[\s\r|\n|\r\n]*(.*)[\s\r|\n|\r\n]*</span>)',$content,$phone);
 			//print_r($phone[1][0]);
