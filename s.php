@@ -76,7 +76,6 @@ class Spider{
 	}	
 
 
-
 	public function mergeurl(){
 		$mergeurl = $this->gettype();
 
