@@ -63,7 +63,7 @@ die();
 		$a = preg_grep('(http://jump.zhineng.58.com/)', $snoopy->results);
 		$b = preg_grep('(http://sz.58.com/ershoufang/[0-9]+x.shtml)', $snoopy->results);
 		$c = preg_grep('(http://jing.58.com/)', $snoopy->results);
-		http://jing.58.com/
+		//http://jing.58.com/
 		$mergeab = array_merge($a,$b,$c);
 
 		$mergeab = array_unique($mergeab);
