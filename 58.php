@@ -89,7 +89,7 @@
 			//print_r($phone[1][0]);
 			preg_match_all('(href=\"http://my.58.com/[0-9]+/\">(.*)</a>)',$content,$name);
 			//print_r($name[1][0]);
-			insert($phone[1][0],$name[1][0]);
+			insert($phone[1][0],$name[1][0],$mergeab[$key]);
 
 		}
 
