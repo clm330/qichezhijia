@@ -62,7 +62,7 @@
 
 		$mergeab = array_unique($mergeab);
 		//print_r($mergeab);
-
+		echo $first[$key];
 		foreach ($mergeab as $key => $value) {
 			# code...
 			$initurl=$mergeab[$key];
