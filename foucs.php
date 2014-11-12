@@ -56,7 +56,7 @@ foreach ($city as $curcity) {
 
                     for($h=0;$h<=19;$h++){
                         if(isset($name1[1][$h])||isset($tel[2][$h])||isset($com[1][$h])||isset($dist2[1][$h])){
-                            insert($name1[2][$h],$tel[1][$z],$com[1][$h],$curcity,$dist2[1][$h]);
+                            insert($name1[2][$h],$tel[1][$h],$com[1][$h],$curcity,$dist2[1][$h]);
                             //echo $name1[2][$z].$tel[1][$z].$com[1][$z].$curcity.$dist2[1][$z];
                         }
                     }
