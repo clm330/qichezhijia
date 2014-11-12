@@ -29,22 +29,26 @@
 
 // die();
 
-	// $initurl='http://sz.58.com/ershoufang/19218421723906x.shtml';
+	// $initurl='http://sz.58.com/ershoufang/18833881210888x.shtml';
 	// $UserAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0';
 	// $curl = curl_init();
 	// curl_setopt($curl, CURLOPT_REFERER, 'http://sz.58.com/');
 	// curl_setopt($curl, CURLOPT_URL, $initurl);
 	// curl_setopt($curl, CURLOPT_RETURNTRANSFER,true);
 	// curl_setopt($curl, CURLOPT_AUTOREFERER, true); 
+	// curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'GET');
+	// curl_setopt($curl,  CURLOPT_FOLLOWLOCATION, 1);
 	// curl_setopt($curl, CURLOPT_USERAGENT, $UserAgent);
 	// $content = curl_exec($curl);
 
 
 	// preg_match_all('(<span style="font-size: 26px; font-weight: bold;" class="arial c_ff4200" id="t_phone">[\s\r|\n|\r\n]*(.*)[\s\r|\n|\r\n]*</span>)',$content,$phone);
+	// //print_r($phone);
 	// print_r($phone[1][0]);
 	// preg_match_all('(href=\"http://my.58.com/[0-9]+/\">(.*)</a>)',$content,$name);
+	// //print_r($name);
 	// print_r($name[1][0]);
-	//die();
+	// die();
 
 	$first=array();
 	$http = 'http://sz.58.com/ershoufang/pn' ;
@@ -79,6 +83,8 @@
 			curl_setopt($curl, CURLOPT_RETURNTRANSFER,true);
 			curl_setopt($curl, CURLOPT_AUTOREFERER, true); 
 			curl_setopt($curl, CURLOPT_USERAGENT, $UserAgent);
+			curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'GET');
+			curl_setopt($curl,  CURLOPT_FOLLOWLOCATION, 1);
 			$content = curl_exec($curl);
 
 			echo $mergeab[$key].'           ';
