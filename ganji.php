@@ -188,7 +188,7 @@ $url[]='http://sz.ganji.com/fang/agent/yantianqita/';
 			foreach ($phone[0] as $key => $value) {
 				echo $value;
 				# code...
-				insert($phone[$key]);
+				insert($value);
 			}
     	}
     }
