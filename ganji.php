@@ -181,9 +181,12 @@ $url[]='http://sz.ganji.com/fang/agent/yantianqita/';
     		# code...
     		$snoopy->host = $url[$key].'o'.$c;
 			$snoopy-> fetchtext($snoopy->host); //获取所有文本内容（去掉html代码）
-			$a = preg_match_all('([0-9]{11})',$snoopy->results,$phone);
+			preg_match_all('([0-9]{11})',$snoopy->results,$phone);
 			//print_r($phone);
-			foreach ($phone as $key => $value) {
+			//echo '<pre>'.print_r($phone,1).'</pre>';
+			//die();
+			foreach ($phone[0] as $key => $value) {
+				echo $value;
 				# code...
 				insert($phone[$key]);
 			}
