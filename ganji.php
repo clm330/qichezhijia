@@ -185,10 +185,19 @@ $url[]='http://sz.ganji.com/fang/agent/yantianqita/';
 			//print_r($phone);
 			//echo '<pre>'.print_r($phone,1).'</pre>';
 			//die();
-			foreach ($phone[0] as $key => $value) {
-				echo $value;
-				# code...
-				insert($value);
+
+			if(count($phone[0])>0)
+			{
+				foreach ($phone[0] as $key => $value) {
+					echo $value;
+					# code...
+					insert($value);
+				}				
 			}
+			else
+			{
+				break;
+			}
+
     	}
     }
