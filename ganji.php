@@ -158,7 +158,7 @@ $url[]='http://sz.ganji.com/fang/agent/yantianqita/';
 
 
 	// $snoopy = new Snoopy;
-	// $snoopy->host = 'http://sz.ganji.com/fang/agent/guangmingxinqu/';
+	// $snoopy->host = 'http://sz.ganji.com/fang/agent/bagualing/o6';
 	// //$snoopy->fetchlinks($snoopy->host);
 	// $snoopy-> fetchtext($snoopy->host); //获取所有文本内容（去掉html代码）
 
@@ -179,11 +179,31 @@ $url[]='http://sz.ganji.com/fang/agent/yantianqita/';
     	# code...
     	for ($c=1; $c <= 100; $c++) { 
     		# code...
-    		$snoopy->host = $url[$key].'o'.$c;
-			$snoopy-> fetchtext($snoopy->host); //获取所有文本内容（去掉html代码）
-			preg_match_all('([0-9]{11})',$snoopy->results,$phone);
-			//print_r($phone);
-			//echo '<pre>'.print_r($phone,1).'</pre>';
+    		echo $url[$key].'o'.$c;
+
+
+			$initurl=$url[$key].'o'.$c;
+			$UserAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0';
+			$curl = curl_init();
+			curl_setopt($curl, CURLOPT_REFERER, 'http://sz.ganji.com/');
+			curl_setopt($curl, CURLOPT_URL, $initurl);
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER,true);
+			curl_setopt($curl, CURLOPT_AUTOREFERER, true); 
+			curl_setopt($curl, CURLOPT_USERAGENT, $UserAgent);
+			curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'GET');
+			curl_setopt($curl,  CURLOPT_FOLLOWLOCATION, 1);
+			$content = curl_exec($curl);
+
+
+
+			echo $content;
+   //  		$snoopy->host = $url[$key].'o'.$c;
+			// $snoopy-> fetchtext($snoopy->host); //获取所有文本内容（去掉html代码）
+			preg_match_all(("([0-9]{11})"),$content,$phone);
+			//print_r($snoopy->results);
+			// print_r($phone);
+			// echo '<pre>'.print_r($phone[1],1).'</pre>';
+			
 			//die();
 
 			if(count($phone[0])>0)
@@ -198,6 +218,10 @@ $url[]='http://sz.ganji.com/fang/agent/yantianqita/';
 			{
 				break;
 			}
+
+
+				$rand = rand(5, 20);
+				sleep($rand);	
 
     	}
     }
