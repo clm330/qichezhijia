@@ -2,6 +2,7 @@
 
     include('Snoopy.class.php');
     include('ganjiapi.php');
+include 'simple_html_dom.php';
 
 	// include('Snoopy.class.php');
 
@@ -196,19 +197,41 @@ $url[]='http://sz.ganji.com/fang/agent/yantianqita/';
 
 
 
-			echo $content;
+
+				$html = (string)($content);
+
+				$html = str_get_html($html);
+
+				//echo 'a';
+
+
+				// foreach($html->find('div[id=artibody]') as $element)
+				//        $content = $element->innertext; 
+
+				$phone = array();
+				$name = array();
+
+				foreach($html->find('span[class=broker-tel]') as $element)
+				       $phone[] = $element->innertext; 
+				foreach($html->find('span[class=broker-name]') as $element)
+				       $name[] = $element->innertext; 
+
+				   
+
+
+			//echo $content;
    //  		$snoopy->host = $url[$key].'o'.$c;
 			// $snoopy-> fetchtext($snoopy->host); //获取所有文本内容（去掉html代码）
-			preg_match_all(("([0-9]{11})"),$content,$phone);
+			//preg_match_all(("([0-9]{11})"),$content,$phone);
 			//print_r($snoopy->results);
 			// print_r($phone);
 			// echo '<pre>'.print_r($phone[1],1).'</pre>';
 			
 			//die();
 
-			if(count($phone[0])>0)
+			if(count($phone)>0)
 			{
-				foreach ($phone[0] as $key => $value) {
+				foreach ($phone as $key => $value) {
 					echo $value;
 					# code...
 					insert($value);
