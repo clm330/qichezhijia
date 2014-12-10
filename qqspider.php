@@ -8,7 +8,7 @@ include 'simple_html_dom.php';
 
 	foreach ($keyword as $kwkey => $kwvalue) {
 
-		for($page=1;$page<=5;$page++){
+		for($page=1;$page<=1;$page++){
 
 			$qqurl = $qurl['QQ']['initurl'].'&'.$qurl['QQ']['other'].'&'.$qurl['QQ']['q'].'='.$kwvalue.'&'.$qurl['QQ']['page'].'='.$page;
 			$snoopy = new Snoopy;
@@ -67,13 +67,21 @@ include 'simple_html_dom.php';
 				$source = 'QQ';
 				$sourceurl = $value;
 				$create_time = date('Y-m-d h:i:sa');
+
+				$kwmatch = '~'.urlencode($kwvalue).'~';
+				$titlematch = urlencode($title);
+
+				// echo preg_match($kwmatch,$titlematch).'      ';			
+
+				if (preg_match($kwmatch,$titlematch)) {
+					# code...
 				
+					if (isset($content) && strlen($content)>300) {
 
-				if (isset($content) && strlen($content)>300) {
+						insert($source,$sourceurl,$create_time,$release_time,$title,$content,$kwkey);
+					}
 
-					insert($source,$sourceurl,$create_time,$release_time,$title,$content,$kwkey);
 				}
-
 				//die();
 				$rand = rand(5, 20);
 				sleep($rand);

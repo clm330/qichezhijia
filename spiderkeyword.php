@@ -48,7 +48,7 @@ $qurl = array('BAIDU' =>  array('initurl' => 'http://news.baidu.com/ns?'),
 
 			'YICAI' => array('initurl' => 'http://cbnsearch.yicai.com/cbnsearch.html?', 
 							'q' => 'searchKeyWords',
-							'other' => '&pagecount=20&documentType=2&datetype=1&contenttype=2',
+							'other' => '&pagecount=20&documentType=2&datetype=4&contenttype=2',
 							'page' =>'start' , ),
 			);
 

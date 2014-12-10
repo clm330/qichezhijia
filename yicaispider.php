@@ -16,8 +16,6 @@ foreach ($keyword as $kwkey => $kwvalue) {
 		$keyword = $kwvalue;
 		$url = $qurl[$site]['initurl'].$qurl[$site]['other'].'&'.$qurl[$site]['q'].'='.$keyword.'&'.$qurl[$site]['page'].'='.$page;
 
-		echo $url;
-		die();
 
 		//echo $url.'  ';
 		//$value= 'http://search.sina.com.cn/?q=%B3%B5%B4%FB&range=all&c=news&sort=time&page=2';
@@ -25,9 +23,23 @@ foreach ($keyword as $kwkey => $kwvalue) {
 		$snoopy->agent = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0';			
 		$snoopy->expandlinks = true; 
 		//$snoopy->rawheaders["COOKIE"] = 'ABTEST=1|1416467691|v17; SNUID=BDB2502357535F1342CD7EFB57C7BA34; IPLOC=CN4401; SUID=EAE407744C1C920A00000000546D94EB; browerV=2; osV=1; SUV=1416467813533208; sct=8; ld=kkllllllll2UbBFLlllllVSHoaolllllNlK6fkllll6lllllVllll5@@@@@@@@@@; sst0=731; LSTMV=448%2C637; LCLKINT=23203';
-		$snoopy->fetchlinks($url);
+		//$snoopy->fetchlinks($url);
+		$snoopy->fetch($url);
+		//$yicailink = array_unique(preg_grep('(http://www.yicai.com/news/2014/(.*?).html)',$snoopy->results)) ;
 
-		$sinalink = array_unique(preg_grep('(http://((finance)|(auto)|(news)|()).sina.com.cn/(.*?).shtml)',$snoopy->results)) ;
+		$yicailink = (string)($snoopy->results);
+		$yicailink = str_get_html($yicailink);
+
+		foreach($yicailink->find('h2') as $element)
+		{
+		       echo $content = $element->innertext;
+		       //echo $content = $element->link_nodes;
+		}
+
+
+		echo $url;
+		//print_r($content);
+		die();
 
 
 			foreach ($sinalink as $key => $value) {
